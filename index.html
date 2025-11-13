@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--ALL LINKS-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&family=Montserrat:wght@600;700&display=swap">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.8.1/core.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap" rel="stylesheet">
+    <script type="module" src="https://pyscript.net/releases/2025.8.1/core.js"></script>
+
+    
+    <style>
+        html, body { 
+        margin:0; 
+        height:100%; 
+        overflow:hidden; 
+        }
+        body{
+        display: flex;
+        cursor: url('GravityFallsgoat.png') 16 16, auto;
+        background:
+        url("cr7realmadrid.jpg") left center/50% 100% no-repeat,
+        url("messi.jpg") right center/50% 100% no-repeat;
+}
+    </style>
+</head>
+<svg class="svg-container">
+    <defs>
+    <filter id="turbulent-displace" colorInterpolationFilters="sRGB" x="-20%" y="-20%" width="140%" height="140%">
+        <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="1" />
+        <feOffset in="noise1" dx="0" dy="0" result="offsetNoise1">
+        <animate attributeName="dy" values="700; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
+        </feOffset>
+
+        <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="1" />
+        <feOffset in="noise2" dx="0" dy="0" result="offsetNoise2">
+        <animate attributeName="dy" values="0; -700" dur="6s" repeatCount="indefinite" calcMode="linear" />
+        </feOffset>
+
+        <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise1" seed="2" />
+        <feOffset in="noise1" dx="0" dy="0" result="offsetNoise3">
+        <animate attributeName="dx" values="490; 0" dur="6s" repeatCount="indefinite" calcMode="linear" />
+        </feOffset>
+
+        <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="10" result="noise2" seed="2" />
+        <feOffset in="noise2" dx="0" dy="0" result="offsetNoise4">
+    <animate attributeName="dx" values="0; -490" dur="6s" repeatCount="indefinite" calcMode="linear" />
+        </feOffset>
+
+        <feComposite in="offsetNoise1" in2="offsetNoise2" result="part1" />
+        <feComposite in="offsetNoise3" in2="offsetNoise4" result="part2" />
+        <feBlend in="part1" in2="part2" mode="color-dodge" result="combinedNoise" />
+
+        <feDisplacementMap in="SourceGraphic" in2="combinedNoise" scale="30" xChannelSelector="R" yChannelSelector="B" />
+    </filter>
+    </defs>
+    <script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</svg>
+<body >
+    <div class="playernames">
+        <!--Ronaldo left-->
+        <div class="crname"><h1>CR7</h1> 
+        </div>
+        <!--Messi right-->
+        <div class="mename"><h1>MESSI</h1>
+        </div>
+    </div>
+<!--TITTLE-BOX-->
+<div class="ENTIRE-BOX">
+<div class="border-outer2">
+    <div class="border-glow2"></div>   <!--BORDER SHADOW-->
+    <div class="main-card2">
+    </div>
+    <div class="headerbox">
+    <h2 class="webtittle">DISCOVER WHO IS YOUR GOAT🐐</h2>
+</div>
+</div>
+</div>
+<!--MAIN BOX OF QUESTIONS-->
+
+<div class="questionbox">
+            <form action="#" id="Questions">
+            <fieldset>
+            <label for="question1">Do you prefer to score or assist?</label>
+                <select name="op1" id="op1">
+                    <option value="score">Score goals</option>
+                    <option value="assits">Make an assist</option>
+                    <option value="both">I like both equally</option>
+                </select>
+
+            </fieldset>
+            <fieldset>
+                <label for="question2">If you were a player, would you prefer to have better dribbling or shooting?</label>
+                <select name="op2" id="op2">
+                    <option value="dribbling">Dribbling</option>
+                    <option value="shooting">shooting</option>
+                    <option value="both">I would prefer both equally</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="question3">Do you prefer to play 15 years in one big football club, or spend the same time playing for many clubs?</label>
+                <select name="op3" id="op3">
+                    <option value="one_club">One big football club</option>
+                    <option value="more_than">Differents clubs</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="queestion4">Who is better, the most disciplined person or the most talented person?</label>
+                <select name="op4" id="op4">
+                    <option value="talent">Most talented person</option>
+                    <option value="discipline">Most disciplined person</option>
+                    <option value="half">They are equally good</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="question5">Are you a leader in your environment?</label>
+                <select name="op5" id="op5">
+                    <option value="yeah">Yes</option>
+                    <option value="nop">No</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="question6">Are you an extroverted or introverted person?</label>
+                <select name="op6" id="op6">
+                    <option value="extroverted">Extroverted</option>
+                    <option value="introverted">Introverted</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="question7">Do you prefer a fast or a possession-style in football?</label>
+                <select name="op7" id="op7">
+                    <option value="fast">Fast game style</option>
+                    <option value="possession">Possession</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="question8">Do you prefer to cross the ball or be the one waiting for the cross?</label>
+                <select name="op8" id="op8">
+                    <option value="cross">Cross the ball</option>
+                    <option value="wait">Wait for the cross</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="question9">Which would you prefer to be your best goal, dribbling past players or scoring a perfect bicycle kick?</label>
+                <select name="op9" id="op9">
+                <option value="bicycle">Bicycle goal</option>
+                <option value="justdribbling">Dribbling goal</option>
+                </select>
+</fieldset>
+</form>
+</div>
+
+
+<div class="main-card"></div> <!--Electric border-->
+    <div class="card-container">
+        <div class="inner-container">
+        <div class="border-outer"></div>   
+        <div class="glow-layer-1"></div>
+    </div>
+        <div class="overlay-1"></div>
+        <div class="background-glow"></div>
+</div>
+<!--RESULTS-->
+
+<div class="buttoncontainer">
+    <div class="button-style"></div>
+    <button id="seeGoatBtn" type="buttonn">See Your GOAT 🐐</button>
+    <div class="button-style button-style---out"></div>
+    <div class="button-style button-style---in"></div>
+    
+</div>
+<script src="inside.js"></script>
+
+</body>
+
+</html>
+

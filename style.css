@@ -1,0 +1,390 @@
+/*Electric BORDER*/
+:root {
+    --electric-border-color: #ddb048;
+    --electric-light-color: oklch(from var(--electric-border-color) l c h);
+    --gradient-color: oklch(
+    from var(--electric-border-color) 0.3 calc(c / 2) h / 0.4
+    );
+    --color-neutral-900: oklch(0.185 0 0);
+}
+.body {
+    display: flex;
+}
+.cuerpo:hover {
+    cursor: url('GravityFallsgoat.png') 16 16, auto;
+}
+/*TITTLE BOX*/
+.webtittle {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 1.6rem; 
+    text-align: center;
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.9),
+        0 0 16px rgba(255, 215, 0, 0.9),
+        0 0 28px rgba(255, 215, 0, 0.9);
+}
+.headerbox {
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 10%; 
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    z-index: 25; 
+    /* ---  --- */
+    color: white;
+    width: 350px;
+    height: 70px;
+    padding: 5px;
+    border-radius: 0px;
+    text-align: center;
+    background-color: rgba(42, 42, 40, 0.75);
+    border-style: solid;
+    border-width: 2px;
+    border-color: rgba(219, 191, 37, 0.5);
+    overflow: visible;
+}
+.ENTIRE-BOX {
+    position: absolute;
+    top: 90px;                 
+    left: 50%;
+    height: 100px;
+    width: 520px;               
+    transform: translateX(-50%) scale(1);
+    transform-origin: center;
+    transition: transform 0.25s ease-in-out;
+    z-index: 25;
+}
+.ENTIRE-BOX:hover {
+    transform: translateX(-50%) scale(1.12);
+}
+.headerbox::after{
+    content: "";
+    position: absolute;
+    inset: -8px;                         
+    border-radius: 14px;                
+    border: 3px solid gold;          
+    filter: blur(12px);                 
+    opacity: .9;
+    pointer-events: none;                
+    z-index: -1;                        
+}
+.main-card2 {
+    display: flex;
+    position: absolute;
+    z-index: 20;
+    width: 364px;
+    height: 82px;
+    border-radius: 0px;
+    border: 2px solid var(--electric-border-color);
+    margin-top: -3.5px;
+    margin-left: -4px;
+    filter: url(#turbulent-displace);
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.border-glow2 { /*THIS IS THE STATIC BORDER WITH SHADOW*/
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    border-radius: 24px;
+    border: 2px solid rgba(255, 230, 0, 0.8);
+    filter: blur(12px);
+    opacity: 0.75;
+    pointer-events: none; 
+    z-index: 20;
+
+}
+/*PLAYER NAMES*/
+.playernames {
+    position: fixed
+    cursor: pointer;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+
+}
+.crname {  /*CR7 name*/
+    position: absolute;
+    top: 1%;
+    left: -6.0%;
+    color: white;
+    z-index: 15;         
+    font-size: 5rem;
+    writing-mode: vertical-rl;
+    font-weight:800;
+    letter-spacing: -1vw;
+    font-family: 'Oswald', sans-serif;
+    text-orientation: upright;
+    writing-mode: vertical-rl;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); 
+    filter: drop-shadow(0 0 8px #fff);
+    text-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.7),
+    0 0 30px rgba(255, 255, 255, 0.6);
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.mename {  /*MESSI name*/
+    position: absolute;
+    top: 5%;
+    right: -2.0%;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-size: 4rem;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: -2.0vw;
+    color: #600872;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); 
+    text-shadow:
+    0 0 10px rgb(46, 5, 226),
+    0 0 20px rgba(55, 6, 190, 0.952),
+    0 0 30px rgba(68, 0, 255, 0.904);
+    filter: drop-shadow(0 0 8px #fff);
+    z-index: 15;
+    transition: transform 0.3s ease, text-shadow 0.3s ease;
+
+}
+.crname:hover, .mename:hover { /*Cursor for both names*/
+    cursor: url('footballball.png') 16 16, auto;
+    transform: scale(1.1);
+    filter: brightness(1);
+}
+/*BOX OF QUESTIONS*/
+
+.card-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: absolute;
+    top: 15%; 
+    left: 50%;
+    transform: translateX(-50%);
+    
+
+}
+
+.inner-container {
+    position: absolute;
+    width: 400px;
+    height: 600px;
+    position: absolute;
+    top: 15%; 
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.border-outer {
+    position: absolute;
+    border: 2px solid rgba(219, 170, 49, 0.735);
+    border-radius: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    width: 800px;
+    height: 380px;
+    top: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.main-card {
+    position: absolute;
+    z-index: 20;
+    width: 802px;
+    height: 382px;
+    border-radius: 0px;
+    border: 2px solid var(--electric-border-color);
+    margin-top: -3.5px;
+    margin-left: -4px;
+    filter: url(#turbulent-displace);
+    top: 31%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 19;
+
+}
+
+/* Glow effects */
+
+.glow-layer-1 {
+    border: 2px solid var(--electric-light-color);
+    border-radius: 0px;
+    width: 800px;
+    height: 390px;
+    position: absolute;
+    top: 1.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: blur(4px);
+}
+
+/* Overlay effects */
+.overlay-1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -20%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0px;
+    opacity: 1;
+    mix-blend-mode: overlay;
+    transform: scale(1.1);
+    filter: blur(16px);
+    background: linear-gradient(
+    47deg,
+    rgb(221, 181, 19) 15%,
+    transparent 70%,
+    rgba(219, 182, 21, 0.985)
+    );
+}
+
+
+/* Background glow */
+.background-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 24px;
+    filter: blur(32px);
+    transform: scale(1.1);
+    opacity: 0.3;
+    z-index: -1;
+    background: linear-gradient(
+    -30deg,
+    var(--electric-light-color),
+    transparent,
+    var(--electric-border-color)
+    );
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%)
+}
+
+.questionbox {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    gap: 8px;
+    width: 801px;
+    height: 380px;
+    z-index: 20;
+    position: absolute;
+    top: 31.7%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(55, 55, 52, 0.75);
+    border: 1px;
+    border-color: #ebff0b;
+}
+.questionbox fieldset {
+    display: flex;
+    flex-direction: row;      
+    justify-content: space-between; /*put question and option to opposite sites */
+    align-items: center; 
+    justify-content: space-between; /* put question and option to opposite sites*/
+    padding: 8.2px 5px;
+    border-color: rgba(244, 208, 8, 0.5);
+    
+}
+.questionbox label {
+    color: rgb(255, 251, 251);
+    font-weight: bold;
+    padding-right: 1rem;
+}
+.questionbox select {
+    border: 1px;
+    border-radius: 10px;
+}
+/* THE-RESULTS*/
+.buttoncontainer{
+    position: absolute;
+    left: 50%;
+    top: 86%;
+    transform: translateX(-50%);
+    z-index: 40;
+    
+    
+}
+
+.button-style {
+    position: relative;         
+    display: inline-block;
+    transform-origin: center;   
+    transition: transform .25s ease;
+    
+    
+}
+.button-style:hover {
+    transform: scale(1.05);
+}
+.button {
+    position: absolute;
+    pointer-events: none;
+    inset: -4px;                          
+    border: 2px solid var(--electric-border-color);
+    border-radius: 12px;
+    filter: url(#turbulent-displace);     
+    opacity: .9;
+    z-index: 1;
+    background-color: rgba(42, 42, 40, 0.75);    
+}
+.button-style---in {
+    inset: -8px;                          
+    border-radius: 20px;
+    filter: url(#turbulent-displace) blur(12px);
+    opacity: .65;
+    z-index: 0;
+    border: 2px solid var(--electric-border-color);
+}
+#seeGoatBtn{
+    
+    padding: 14px 28px;
+    font-size: 20px;
+    border: 2px solid gold;
+    border-radius: 0px;
+    background-color: rgba(42, 42, 40, 0.75);
+    color: #fff;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    position: relative;
+    z-index: 40;
+}
+#seeGoatBtn:hover{
+    transform: scale(1.03);
+    box-shadow: 0 16px 40px rgba(0,0,0,.45), 0 0 18px rgba(255,215,0,.35);
+}
+#seeGoatBtn.btn-result{
+    white-space: normal;       
+    line-height: 1.25;
+    text-align: center;
+    font-size: 1rem;
+    padding: 14px 18px;
+    background-color: rgba(42, 42, 40, 0.75);
+}
+
+
+
+
+
+
